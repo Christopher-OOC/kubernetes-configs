@@ -5,8 +5,10 @@ metadata:
 spec:
   replicas: 1
   selector:
-    matchLabels:
-      app: second-app
+    matchExpressions:
+      - { key: app, operator: IN, values: [second-app, first-app] }
+    # matchLabels:
+    #   app: second-app
   template:
     metadata:
       labels:
